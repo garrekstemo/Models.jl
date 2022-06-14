@@ -1,5 +1,12 @@
 """
-Real part of the dielectric function
+Frequency-dependent real part of the dielectric function in terms
+of the background index and Lorentzian oscillator,
+
+``\\varepsilon_1(\\nu) = n^2 + \\frac{A (\\nu_0^2 - \\nu^2)}{(\\nu^2 - \\nu_0^2)^2 + (\\Gamma\\nu)^2},``
+
+where ``n`` is the background real index, ``\\nu_0`` is the excitation
+frequency, ``\\Gamma`` is the line width of the oscillator, and ``A`` is the 
+oscillator strength.
 """
 function dielectric_real(ν, p)
     ν_0, A, Γ, n_eff = p
@@ -7,7 +14,9 @@ function dielectric_real(ν, p)
 end
 
 """
-Imaginary part of the dielectric function
+Frequency-dependent imaginary part of the dielectric function.
+
+``\\varepsilon_2(\\nu) = \\frac{A \\Gamma \\nu}{(\\nu^2 - \\nu_0^2)^2 + (\\Gamma\\nu)^2}``
 """
 function dielectric_imag(ν, p)
     ν_0, A, Γ, y_0 = p
