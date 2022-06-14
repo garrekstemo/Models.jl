@@ -26,7 +26,9 @@ end
 """
 Cavity mode energy as a function of incident angle.
 
-``E_\\text{cavity}(\\theta) = E_0 \\left( 1 - \\frac{\\sin^2(\\theta)}{n^2} \\right)^{-1/2}``
+``E_\\text{cavity}(\\theta) = E_0 \\left( 1 - \\frac{\\sin^2(\\theta)}{n^2} \\right)^{-1/2},``
+
+where ``E_0`` is the energy of the cavity mode at zero degrees incidence angle.
 
 """
 function cavity_mode_energy(θ, p)
