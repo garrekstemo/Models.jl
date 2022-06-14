@@ -41,7 +41,7 @@ Coupled energies found by diagonalizing the coupled-oscillator model Hamiltonian
 
 ``H = 
 \\begin{pmatrix}
-
+E_c(\\theta) & V/2 \\\\\
 V/2 & E_v
 \\end{pmatrix}.``
 
