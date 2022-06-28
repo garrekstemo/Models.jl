@@ -41,7 +41,13 @@ axislegend(ax)
 
 Common functions and lineshapes for spectroscopy.
 
-```@docs
+
+```@autodocs
+Modules = [Models]
+Pages = ["functions.jl", "spectial_functions.jl"]
+```
+
+<!-- ```@docs
 exponential(x)
 
 double_exponential(x)
@@ -56,7 +62,7 @@ double_lorentzian(ν)
 
 sine(x)
 
-squared_errors(p, f, X, Y)
+squared_errors(p, f, X, Y) -->
 ```
 
 
