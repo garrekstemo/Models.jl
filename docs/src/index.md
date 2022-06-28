@@ -44,25 +44,7 @@ Common functions and lineshapes for spectroscopy.
 
 ```@autodocs
 Modules = [Models]
-Pages = ["functions.jl", "spectial_functions.jl"]
-```
-
-<!-- ```@docs
-exponential(x)
-
-double_exponential(x)
-
-gaussian(x)
-
-gaussian2d(x, y)
-
-lorentzian(ν)
-
-double_lorentzian(ν)
-
-sine(x)
-
-squared_errors(p, f, X, Y) -->
+Pages = ["functions.jl"]
 ```
 
 
@@ -72,30 +54,7 @@ These function are specific to cavity polariton research,
 where things like the cavity transmittance, material dielectric function,
 and cavity free spectral range (FSR) need to be calculated and modeled.
 
-```@docs
-cavity_transmittance(ν, p)
-```
-
-```@docs
-dielectric_real(ν, p)
-```
-
-```@docs
-dielectric_imag(ν, p)
-```
-
-```@docs
-cavity_mode_energy(θ, p)
-```
-
-```@docs
-coupled_energies(E_c, E_v, V, branch=0)
-```
-
-```@docs
-fsr(peak_positions::Array{Float64, 1})
-```
-
-```@docs
-fsr(x1::Float64, x2::Float64)
+```@autodocs
+Modules = [Models]
+Pages = ["spectial_functions.jl"]
 ```
