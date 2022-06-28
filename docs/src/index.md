@@ -33,7 +33,7 @@ lines!(ax, xdata, ydata)
 lines!(ax, xdata, exponential(xdata, params))
 ```
 
-![image](docs/assets/fit.jpg)
+![image](./docs/assets/fit.jpg)
 
 ## General Functions
 
@@ -68,7 +68,7 @@ sine(x)
 ```
 
 ```@docs
-squared_errors(p)
+squared_errors(x)
 ```
 
 ## Special Functions
