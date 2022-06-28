@@ -1,5 +1,20 @@
+"""Squared errors
+
+Takes a function, `f`, and its parameters, `p`
+and sums the squared errors given x-data and y-data
+`X` and `Y`, respectively.
 """
-Exponential decay function.
+function squared_errors(p, f::function, X, Y)
+    error = 0.0
+
+    for i in 1:length(X)
+        y_i = f(X[i], p)
+        error += (Y[i] - y_i)^2
+    end
+    return error
+end
+
+"""Exponential decay function.
 
 ``f(x; \\tau, y_0) = f_0 e^{-x / \\tau} + y_0``
 
