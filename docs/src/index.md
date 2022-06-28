@@ -33,7 +33,7 @@ lines!(ax, xdata, ydata)
 lines!(ax, xdata, exponential(xdata, params))
 ```
 
-![image](./docs/assets/fit.jpg)
+![image](../docs/assets/fit.jpg)
 
 ## General Functions
 
@@ -41,17 +41,11 @@ Common functions and lineshapes for spectroscopy.
 
 ```@docs
 exponential(x)
-```
 
-```@docs
 double_exponential(x)
-```
 
-```@docs
 gaussian(x)
-```
 
-```@docs
 gaussian2d(x, y)
 ```
 
@@ -68,7 +62,7 @@ sine(x)
 ```
 
 ```@docs
-squared_errors(x)
+squared_errors(p, f, X, Y)
 ```
 
 ## Special Functions
