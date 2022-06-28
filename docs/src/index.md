@@ -33,7 +33,7 @@ lorentzian(ν)
 ```
 
 ```@docs
-squared_errors(p, f, X, Y)
+squared_errors(p)
 ```
 
 ## Special Functions
