@@ -56,5 +56,5 @@ and cavity free spectral range (FSR) need to be calculated and modeled.
 
 ```@autodocs
 Modules = [Models]
-Pages = ["spectial_functions.jl"]
+Pages = ["special_functions.jl"]
 ```
