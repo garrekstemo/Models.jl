@@ -29,8 +29,9 @@ params = Optim.minimizer(result)
 fig = Figure()
 display(fig)
 ax = Axis(fig[1, 1])
-lines!(ax, xdata, ydata)
-lines!(ax, xdata, exponential(xdata, params))
+lines!(ax, xdata, ydata, label = "data")
+lines!(ax, xdata, exponential(xdata, params), label = "fit")
+axislegend(ax)
 ```
 
 ![exponential fit image](./assets/fit.png)
@@ -55,7 +56,7 @@ double_lorentzian(ν)
 
 sine(x)
 
-squared_errors(x)
+squared_errors(p, f, X, Y)
 ```
 
 
