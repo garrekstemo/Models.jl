@@ -33,7 +33,8 @@ lines!(ax, xdata, ydata)
 lines!(ax, xdata, exponential(xdata, params))
 ```
 
-![image](../assets/fit.png)
+![exponential fit image](./assets/fit.png)
+
 
 ## General Functions
 
