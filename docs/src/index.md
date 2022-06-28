@@ -55,8 +55,9 @@ double_lorentzian(ν)
 
 sine(x)
 
-squared_errors()
+squared_errors(x)
 ```
+
 
 ## Special Functions
 
