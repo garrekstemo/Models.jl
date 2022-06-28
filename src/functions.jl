@@ -1,19 +1,3 @@
-"""Squared errors
-
-Takes a function, `f`, and its parameters, `p`
-and sums the squared errors given x-data and y-data
-`X` and `Y`, respectively.
-"""
-function squared_errors(p, f, X, Y)
-    error = 0.0
-
-    for i in 1:length(X)
-        y_i = f(X[i], p)
-        error += (Y[i] - y_i)^2
-    end
-    return error
-end
-
 """Exponential decay function
 
 ``f(x; f_0, \\tau, y_0) = f_0 e^{-x / \\tau} + y_0``
@@ -94,4 +78,20 @@ Sinusoidal function.
 function sine(x, p = [1.0, 1.0, 0.0, 0.0])
     A, ω, ϕ, y_0 = p
     return @. A * sin(x * ω + ϕ) + y_0
+end
+
+"""Squared errors
+
+Takes a function, `f`, and its parameters, `p`
+and sums the squared errors given x-data and y-data
+`X` and `Y`, respectively.
+"""
+function squared_errors(p, f, X, Y)
+    error = 0.0
+
+    for i in 1:length(X)
+        y_i = f(X[i], p)
+        error += (Y[i] - y_i)^2
+    end
+    return error
 end
