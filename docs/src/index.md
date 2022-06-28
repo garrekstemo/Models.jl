@@ -4,7 +4,7 @@ This simple package contains functions and lineshapes
 commonly used in vibrational polariton spectroscopic experiments.
 The main purpose is code reusability for my own projects, but
 on the off chance that it is useful to others, it is available.
-These functions are best used together with [LsqFit.jl](https://github.com/JuliaNLSolvers/LsqFit.jl) or [Optim.jl](https://github.com/JuliaNLSolvers/Optim.jl) for curve
+These functions are best used together with [Optim.jl](https://github.com/JuliaNLSolvers/Optim.jl) or the global optimization package [Optimization.jl](https://optimization.sciml.ai/stable/) for
 fitting. It would be nice if models and fitting procedures were bundled together in the future,
 like the [lmfit](https://lmfit.github.io/lmfit-py/index.html) package available for Python (leveraging SciPy).
 
@@ -30,6 +30,10 @@ gaussian2d(x, y)
 
 ```@docs
 lorentzian(ν)
+```
+
+```@docs
+squared_errors(p, f, X, Y)
 ```
 
 ## Special Functions
