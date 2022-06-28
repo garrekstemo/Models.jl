@@ -1,6 +1,5 @@
 module Models
 
-
 export exponential, double_exponential, gaussian, gaussian2d,
        lorentzian, double_lorentzian, sine, squared_errors
 
