@@ -33,7 +33,7 @@ lines!(ax, xdata, ydata)
 lines!(ax, xdata, exponential(xdata, params))
 ```
 
-![image](/docs/assets/fit.png)
+![image](docs/assets/fit.jpg)
 
 ## General Functions
 
@@ -57,6 +57,14 @@ gaussian2d(x, y)
 
 ```@docs
 lorentzian(ν)
+```
+
+```@docs
+double_lorentzian(ν)
+```
+
+```@docs
+sine(x)
 ```
 
 ```@docs

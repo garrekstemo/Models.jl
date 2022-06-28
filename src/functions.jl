@@ -39,6 +39,7 @@ end
 
 """
 Gaussian function.
+    
 ``f(x; A, \\mu, \\sigma, y_0) = \\frac{A}{\\sigma \\sqrt{2\\pi}} e^{-(x - \\mu)^2 / (2 \\sigma^2)} + y_0``
 
 [https://en.wikipedia.org/wiki/Gaussian_function](https://en.wikipedia.org/wiki/Gaussian_function)
