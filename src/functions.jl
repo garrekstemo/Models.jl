@@ -16,7 +16,7 @@ end
 
 """Exponential decay function.
 
-``f(x; \\tau, y_0) = f_0 e^{-x / \\tau} + y_0``
+``f(x; f_0, \\tau, y_0) = f_0 e^{-x / \\tau} + y_0``
 
 [https://en.wikipedia.org/wiki/Exponential_decay](https://en.wikipedia.org/wiki/Exponential_decay)
 """
