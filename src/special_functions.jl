@@ -41,8 +41,8 @@ Coupled energies found by diagonalizing the coupled-oscillator model Hamiltonian
 
 ``H = 
 \\begin{pmatrix}
-E_c(\\theta) & V/2 \\\\\
-V/2 & E_v
+E_1(\\theta) & \\Omega_R/2 \\\\\
+\\Omega_R/2 & E_2
 \\end{pmatrix}.``
 
 Diagonalizing ``H`` gives the interaction energies as a function
@@ -50,7 +50,7 @@ of ``\\theta``. These exhibit avoided crossing behavior near
 where the cavity mode energy equals the material excitation energy.
 
 ``
-V_{\\pm}(\\theta) = \\frac{1}{2}(E_c(\\theta) + E_v) \\pm \\frac{1}{2} \\sqrt{(E_c(\\theta) - E_v)^2 + V^2}
+E_{\\pm}(\\theta) = \\frac{1}{2}(E_1(\\theta) + E_2) \\pm \\frac{1}{2} \\sqrt{(E_1(\\theta) - E_2)^2 + \\Omega_R^2}
 ``
 
 [https://en.wikipedia.org/wiki/Avoided_crossing](https://en.wikipedia.org/wiki/Avoided_crossing)
