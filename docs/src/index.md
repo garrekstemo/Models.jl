@@ -55,7 +55,7 @@ double_lorentzian(ν)
 
 sine(x)
 
-Models.squared_errors(p)
+squared_errors()
 ```
 
 ## Special Functions

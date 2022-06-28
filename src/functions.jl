@@ -4,7 +4,7 @@ Takes a function, `f`, and its parameters, `p`
 and sums the squared errors given x-data and y-data
 `X` and `Y`, respectively.
 """
-function squared_errors(p, f::Function, X, Y)
+function squared_errors(p, f, X, Y)
     error = 0.0
 
     for i in 1:length(X)
@@ -14,7 +14,7 @@ function squared_errors(p, f::Function, X, Y)
     return error
 end
 
-"""Exponential decay function.
+"""Exponential decay function
 
 ``f(x; f_0, \\tau, y_0) = f_0 e^{-x / \\tau} + y_0``
 
@@ -37,9 +37,8 @@ function double_exponential(x, p = [1.0, 1.0, 1.0, 1.0, 0.0])
     return @. f_1 * exp(- x / τ_1) + f_2 * exp(- x / τ_2) + y_0
 end
 
-"""
-Gaussian function.
-    
+"""Gaussian function
+
 ``f(x; A, \\mu, \\sigma, y_0) = \\frac{A}{\\sigma \\sqrt{2\\pi}} e^{-(x - \\mu)^2 / (2 \\sigma^2)} + y_0``
 
 [https://en.wikipedia.org/wiki/Gaussian_function](https://en.wikipedia.org/wiki/Gaussian_function)
@@ -50,8 +49,7 @@ function gaussian(x, p = [1.0, 0.0, 1.0, 0.0])
     return @. A * exp( -(x - μ)^2 / (2 * σ^2) ) + y_0
 end
 
-"""
-Two-dimensional Gaussian lineshape.
+"""Two-dimensional Gaussian function
 
 ``f(x, y; A, x_0, \\sigma_x, y_0, \\sigma_y, z_0) = A \\exp\\left(-\\left( \\frac{(x - x_0)^2}{2 \\sigma_x^2} + \\frac{(y - y_0)^2}{2 \\sigma_y^2} \\right)\\right) + z_0``
 """
