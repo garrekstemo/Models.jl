@@ -4,7 +4,7 @@ Takes a function, `f`, and its parameters, `p`
 and sums the squared errors given x-data and y-data
 `X` and `Y`, respectively.
 """
-function squared_errors(p, f::function, X, Y)
+function squared_errors(p, f::Function, X, Y)
     error = 0.0
 
     for i in 1:length(X)
