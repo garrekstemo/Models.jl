@@ -9,8 +9,8 @@ fitting. It would be nice if models and fitting procedures were bundled together
 like the [lmfit](https://lmfit.github.io/lmfit-py/index.html) package available for Python (leveraging SciPy).
 
 The `squared_errors()` function is useful for use with `Optim.jl` for
-curve fitting. It can be implemented for a set of x- and y- data and 
-a model, e.g. an exponential curve. (Makie is not a dependency; we only use it to demonstrate the fit.)
+curve fitting. It can be implemented for a set of x- and y-data and 
+a model, e.g. an exponential curve. (Makie.jl is not a dependency; we only use it to demonstrate the fit.)
 
 ```
 using Optim
@@ -33,7 +33,7 @@ lines!(ax, xdata, ydata)
 lines!(ax, xdata, exponential(xdata, params))
 ```
 
-![image](../docs/assets/fit.jpg)
+![image](../docs/assets/fit.png)
 
 ## General Functions
 
@@ -47,22 +47,14 @@ double_exponential(x)
 gaussian(x)
 
 gaussian2d(x, y)
-```
 
-```@docs
 lorentzian(ν)
-```
 
-```@docs
 double_lorentzian(ν)
-```
 
-```@docs
 sine(x)
-```
 
-```@docs
-squared_errors(p, f, X, Y)
+Models.squared_errors(p)
 ```
 
 ## Special Functions
