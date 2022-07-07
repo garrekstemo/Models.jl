@@ -1,4 +1,8 @@
 """
+    dielectric_real(ν, p)
+
+`p = [ν_0, A, Γ, n_eff]`
+
 Frequency-dependent real part of the dielectric function in terms
 of the background index and Lorentzian oscillator,
 
@@ -14,6 +18,10 @@ function dielectric_real(ν, p)
 end
 
 """
+    dielectric_imag(ν, p)
+
+`p = [ν_0, A, Γ, y_0]`
+
 Frequency-dependent imaginary part of the dielectric function.
 
 ``\\varepsilon_2(\\nu) = \\frac{A \\Gamma \\nu}{(\\nu^2 - \\nu_0^2)^2 + (\\Gamma\\nu)^2}``
@@ -24,6 +32,10 @@ function dielectric_imag(ν, p)
 end
 
 """
+    cavity_mode_energy(θ, p)
+
+`p = [E_0, n_eff]`
+
 Cavity mode energy as a function of incident angle.
 
 ``E_\\text{cavity}(\\theta) = E_0 \\left( 1 - \\frac{\\sin^2(\\theta)}{n^2} \\right)^{-1/2},``
@@ -37,7 +49,12 @@ function cavity_mode_energy(θ, p)
 end
 
 """
-Coupled energies found by diagonalizing the coupled-oscillator model Hamiltonian:
+    coupled_energies(E_c, E_v, V, branch=0)
+
+Coupled energies found by diagonalizing the coupled-oscillator model Hamiltonian
+with principle energies `E_c` (cavity photon) and `E_v` (material excitation),
+and interaction energy `V`. The lower and upper branches are called with `branch=0`
+and `branch=1`, respectively.
 
 ``H = 
 \\begin{pmatrix}
@@ -64,12 +81,17 @@ function coupled_energies(E_c, E_v, V, branch=0)
     end
 end
 
+
 """
+    cavity_transmittance(ν, p)
+    
+    p = [n, α, L, T, R, ϕ]
+
 Cavity transmittance as a function of frequency.
 
 ``T(\\nu) = \\frac{T^2 e^{-\\alpha L}}{1 + R^2 e^{-2 \\alpha L} - 2 R e^{-\\alpha L} \\cos(4\\pi n L \\nu + 2\\phi)},``
 
-where ``\\nu`` is the frequency, ``\\alpha`` and ``n`` are the frequency-dependent absorption and refractive index,
+where ``\\nu` is the frequency, ``\\alpha`` and ``n`` are the frequency-dependent absorption and refractive index,
 ``L`` is the cavity length, and ``\\phi`` is the phase accumulated upon reflection against a mirror.
 ``T`` and ``R`` are the cavity transmittance and reflectance, respectively, where it is assumed that
 ``T = 1 - R``.
@@ -80,6 +102,8 @@ function cavity_transmittance(ν, p)
 end
 
 """
+    fsr(peak_positions::Array{Float64, 1})
+    
 Find the free spectral range for all adjacent peaks.
 Return the list of FSRs, the average FSR for the range, and the
 standard deviation.
@@ -96,6 +120,8 @@ function fsr(peak_positions::Array{Float64, 1})
 end
 
 """
+    fsr(x1, x2)
+
 Solve for one of three variables in the equation
     for free spectral range in terms of the other two.
 
