@@ -35,7 +35,7 @@ Gaussian function with amplitude `A`, center `μ`, and width `σ`.
 
 [https://en.wikipedia.org/wiki/Gaussian_function](https://en.wikipedia.org/wiki/Gaussian_function)
 """
-function gaussian(x, p = [1.0, 0.0, 1.0])
+function gaussian(x, p = [1.0, 0.0, 0.1])
 
     A, μ, σ = p
     return @. A * exp( -(x - μ)^2 / (2 * σ^2) )
@@ -72,10 +72,10 @@ full width at half maximum (FWHM) `2γ`.
 
 [https://en.wikipedia.org/wiki/Cauchy_distribution](https://en.wikipedia.org/wiki/Cauchy_distribution)
 """
-function lorentzian(ν, p = [1.0, 0.0, 1.0])
+function lorentzian(ν, p = [1.0, 0.0, 0.1])
 
     A, ν_0, γ  = p
-    return @. A / π * γ / ( (ν - ν_0)^2 + γ^2 ) + y_0
+    return @. A / π * γ / ( (ν - ν_0)^2 + γ^2 )
 end
 
 """
@@ -83,7 +83,7 @@ end
 
 Sum of two Lorentzian functions.
 """
-function double_lorentzian(ν, p = [1.0, 1.0, -1.0, 1.0, 1.0, 1.0])
+function double_lorentzian(ν, p = [1.0, -0.5, 0.1, 1.0, 0.5, 0.1])
 
     A_1, ν_1, σ_1, A_2, ν_2, σ_2 = p
     return @. A_1 / π * σ_1 / ( (ν - ν_1)^2 + σ_1^2 ) + A_2 / π * σ_2 / ( (ν - ν_2)^2 + σ_2^2 )
@@ -94,7 +94,7 @@ end
 
 Sinusoidal function.
 """
-function sine(x, p = [1.0, 1.0, 0.0])
+function sine(x, p = [1.0, 10.0, 0.0])
     A, ω, ϕ = p
     return @. A * sin(x * ω + ϕ)
 end
