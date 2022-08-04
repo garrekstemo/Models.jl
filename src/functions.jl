@@ -109,7 +109,7 @@ and sums the squared errors given x-data and y-data
 function squared_errors(p, f, X, Y)
     error = 0.0
 
-    for i in 1:length(X)
+    for i in eachindex(X)
         y_i = f(X[i], p)
         error += (Y[i] - y_i)^2
     end
