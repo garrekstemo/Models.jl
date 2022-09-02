@@ -40,7 +40,7 @@ function dielectric_imag(ν, p)
 end
 
 """
-    cavity_mode_energy(θ, p)
+    cavity_mode_energy(θ::Real, p)
 
 `p = [E_0, n_eff]`
 
@@ -61,7 +61,7 @@ function cavity_mode_energy(θ::Real, p)
 end
 
 """
-    coupled_energies(E_c, E_v, V, branch=0)
+    coupled_energies(E_c::Vector{Real}, E_v::Real, V::Real, branch=0)
 
 Coupled energies found by diagonalizing the coupled-oscillator model Hamiltonian
 with principle energies `E_c` (cavity photon) and `E_v` (material excitation),
@@ -90,7 +90,7 @@ where the cavity mode energy equals the material excitation energy.
 
 [https://en.wikipedia.org/wiki/Avoided_crossing](https://en.wikipedia.org/wiki/Avoided_crossing)
 """
-function coupled_energies(E_c::T1, E_v::T2, V::T3, branch=0) where {T1, T2, T3 <: Real}
+function coupled_energies(E_c::Vector{T1}, E_v::T2, V::T3, branch=0) where {T1, T2, T3 <: Real}
 
     if branch == 0
         return @. 0.5 * ( (E_v + E_c) - sqrt(V^2 + (E_v - E_c)^2) )
@@ -124,7 +124,7 @@ function cavity_transmittance(ν, p)
 end
 
 """
-    fsr(peak_positions::Array{Float64, 1})
+    fsr(peak_positions::Vector{Real)
     
 Find the free spectral range for all adjacent peaks.
 Return the list of FSRs, the average FSR for the range, and the
@@ -142,7 +142,7 @@ function fsr(peak_positions::Vector{Real})
 end
 
 """
-    fsr(x1, x2)
+    fsr(x1::Real, x2::Real)
 
 Solve for one of three variables in the equation
     for free spectral range in terms of the other two.
