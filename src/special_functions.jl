@@ -55,7 +55,7 @@ Cavity mode energy as a function of incident angle.
 where ``E_0`` is the energy of the cavity mode at zero degrees incidence angle.
 
 """
-function cavity_mode_energy(θ, p)
+function cavity_mode_energy(θ::Real, p)
     E_0, n_eff = p
     @. E_0 / sqrt(1 - (sin(θ) / n_eff)^2)
 end
@@ -84,13 +84,13 @@ where the cavity mode energy equals the material excitation energy.
 
 ```math
 \\begin{aligned}
-E_{\\pm}(\\theta) = \\frac{1}{2}(E_1(\\theta) + E_2) \\pm \\frac{1}{2} \\sqrt{(E_1(\\theta) - E_2)^2 + \\Omega_R^2}
+    E_{\\pm}(\\theta) = \\frac{1}{2}(E_1(\\theta) + E_2) \\pm \\frac{1}{2} \\sqrt{(E_1(\\theta) - E_2)^2 + \\Omega_R^2}
 \\end{aligned}
 ```
 
 [https://en.wikipedia.org/wiki/Avoided_crossing](https://en.wikipedia.org/wiki/Avoided_crossing)
 """
-function coupled_energies(E_c, E_v, V, branch=0)
+function coupled_energies(E_c::T, E_v::T, V::T, branch=0) where T <: Real
 
     if branch == 0
         return @. 0.5 * ( (E_v + E_c) - sqrt(V^2 + (E_v - E_c)^2) )
@@ -130,7 +130,7 @@ Find the free spectral range for all adjacent peaks.
 Return the list of FSRs, the average FSR for the range, and the
 standard deviation.
 """
-function fsr(peak_positions::Array{Float64, 1})
+function fsr(peak_positions::Vector{Real})
 	fsrs = Float64[]
 	i = 1
 	while i < length(peak_positions)
@@ -153,9 +153,9 @@ Solve for one of three variables in the equation
 \\end{aligned}
 ```
 
-where ``\\Delta\\nu = |\\nu_2 - \\nu_2|``, ``L`` is the intracavity length,
+where ``\\Delta\\nu = |\\nu_2 - \\nu_1|``, ``L`` is the intracavity length,
 and ``n`` is intracavity index of refraction.
 """
-function fsr(x1::Float64, x2::Float64)
+function fsr(x1::T, x2::T) where T <: Real
     return 1 / (2 * x1 * x2)
 end

@@ -126,7 +126,7 @@ Takes a function, `f`, and its parameters, `p`
 and sums the squared errors given x-data and y-data
 `X` and `Y`, respectively.
 """
-function squared_errors(p, f, X, Y)
+function squared_errors(p, f::F, X, Y) where F <: Function
     error = 0.0
 
     for i in eachindex(X)
