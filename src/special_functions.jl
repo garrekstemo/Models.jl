@@ -90,7 +90,7 @@ where the cavity mode energy equals the material excitation energy.
 
 [https://en.wikipedia.org/wiki/Avoided_crossing](https://en.wikipedia.org/wiki/Avoided_crossing)
 """
-function coupled_energies(E_c::T, E_v::T, V::T, branch=0) where T <: Real
+function coupled_energies(E_c::T1, E_v::T2, V::T3, branch=0) where {T1, T2, T3 <: Real}
 
     if branch == 0
         return @. 0.5 * ( (E_v + E_c) - sqrt(V^2 + (E_v - E_c)^2) )
@@ -156,6 +156,6 @@ Solve for one of three variables in the equation
 where ``\\Delta\\nu = |\\nu_2 - \\nu_1|``, ``L`` is the intracavity length,
 and ``n`` is intracavity index of refraction.
 """
-function fsr(x1::T, x2::T) where T <: Real
+function fsr(x1::T1, x2::T2) where {T1, T2 <: Real}
     return 1 / (2 * x1 * x2)
 end
