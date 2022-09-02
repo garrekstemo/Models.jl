@@ -4,8 +4,13 @@ using Documenter, Models
 
 makedocs(
     sitename="Models.jl",
-    author = "Garrek Stemo",
-    modules = [Models]
+    authors = "Garrek Stemo",
+    modules = [Models],
+    pages = [
+        "Home" => "index.md",
+        "Models" => "funcs.md",
+        "Special Functions" => "specialfuncs.md"
+    ]
     )
 deploydocs(
     repo = "github.com/garrekstemo/Models.jl.git"

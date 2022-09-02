@@ -1,9 +1,13 @@
 """
     exponential(x, p = [f_0, τ])
 
-Exponential decay function with amplitude `f_0`, and decay constant `τ`.
+Exponential decay function with amplitude ``f_0``, and decay constant τ.
 
-``f(x; f_0, \\tau) = f_0 e^{-x / \\tau}``
+```math
+\\begin{aligned}
+f(x; f_0, \\tau) = f_0 e^{-x / \\tau}
+\\end{aligned}
+```
 
 [https://en.wikipedia.org/wiki/Exponential_decay](https://en.wikipedia.org/wiki/Exponential_decay)
 """
@@ -16,9 +20,13 @@ end
     double_exponential(x, p = [f_1, τ_1, f_2, τ_2])
 
 Exponential decay function with two stages represented by
-two different time constants, `τ_1` and `τ_2`.
+two different time constants, ``\\tau_1`` and ``\\tau_2``.
 
-``f(x; f_1, \\tau_1, f_2, \\tau_2) = f_1 e^{-x / \\tau_1} + f_2 e^{-x / \\tau_2}``
+```math
+\\begin{aligned}
+f(x; f_1, \\tau_1, f_2, \\tau_2) = f_1 e^{-x / \\tau_1} + f_2 e^{-x / \\tau_2}
+\\end{aligned}
+```
 
 """
 function double_exponential(x, p = [1.0, 1.0, 1.0, 1.0])
@@ -29,9 +37,13 @@ end
 """
     gaussian(x, p = [A, μ, σ])
 
-Gaussian function with amplitude `A`, center `μ`, and width `σ`.
+Gaussian function with amplitude ``A``, center ``μ``, and width ``σ``.
 
-``f(x; A, \\mu, \\sigma) = \\frac{A}{\\sigma \\sqrt{2\\pi}} e^{-(x - \\mu)^2 / (2 \\sigma^2)}``
+```math
+\\begin{aligned}
+f(x; A, \\mu, \\sigma) = \\frac{A}{\\sigma \\sqrt{2\\pi}} e^{-(x - \\mu)^2 / (2 \\sigma^2)}
+\\end{aligned}
+```
 
 [https://en.wikipedia.org/wiki/Gaussian_function](https://en.wikipedia.org/wiki/Gaussian_function)
 """
@@ -44,10 +56,14 @@ end
 """
     gaussian2d(x, y, p = [A, x_0, σ_x, y_0, σ_y])
 
-Two-dimensional Gaussian function centered at `(x_0, y_0)` and x-width
-`σ_x` and y-width `σ_y`, and amplitude `A`.
+Two-dimensional Gaussian function centered at ``(x_0, y_0)`` and x-width
+``σ_x`` and y-width ``σ_y``, and amplitude ``A``.
 
-``f(x, y; A, x_0, \\sigma_x, y_0, \\sigma_y) = A \\exp\\left(-\\left( \\frac{(x - x_0)^2}{2 \\sigma_x^2} + \\frac{(y - y_0)^2}{2 \\sigma_y^2} \\right)\\right)``
+```math
+\\begin{aligned}
+f(x, y; A, x_0, \\sigma_x, y_0, \\sigma_y) = A \\exp\\left(-\\left( \\frac{(x - x_0)^2}{2 \\sigma_x^2} + \\frac{(y - y_0)^2}{2 \\sigma_y^2} \\right)\\right)
+\\end{aligned}
+```
 """
 function gaussian2d(x, y, p = [1.0, 0.0, 1.0, 0.0, 1.0])
 
@@ -68,7 +84,11 @@ end
 Lorentzian function with amplitude `A`, center frequency `ν_0`, and
 full width at half maximum (FWHM) `2γ`.
 
-``f(\\nu; A, \\nu_0, \\gamma) = \\frac{A}{\\pi} \\frac{\\gamma}{(\\nu - \\nu_0)^2 + \\gamma^2}``
+```math
+\\begin{aligned}
+f(\\nu; A, \\nu_0, \\gamma) = \\frac{A}{\\pi} \\frac{\\gamma}{(\\nu - \\nu_0)^2 + \\gamma^2}
+\\end{aligned}
+```
 
 [https://en.wikipedia.org/wiki/Cauchy_distribution](https://en.wikipedia.org/wiki/Cauchy_distribution)
 """

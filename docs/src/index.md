@@ -12,10 +12,16 @@ The `squared_errors()` function is useful for use with `Optim.jl` for
 curve fitting. It can be implemented for a set of x- and y-data and 
 a model, e.g. an exponential curve. (Makie.jl is not a dependency; we only use it to demonstrate the fit.)
 
+```@setup 1
+using Pkg
+Pkg.add(["Optim", "CairoMakie"])
+Pkg.add(url="https://github.com/garrekstemo/Models.jl")
 ```
+
+```@example 1
 using Optim
 using Models
-using GLMakie
+using CairoMakie
 
 xdata = -30:0.4:1.0
 
@@ -27,35 +33,11 @@ result = optimize(b -> squared_errors(b, exponential, xdata, ydata), p0)
 params = Optim.minimizer(result)
 
 fig = Figure()
-display(fig)
 ax = Axis(fig[1, 1])
+
 lines!(ax, xdata, ydata, label = "data")
 lines!(ax, xdata, exponential(xdata, params), label = "fit")
 axislegend(ax)
-```
 
-![exponential fit image](./assets/fit.png)
-
-
-## General Functions
-
-Common functions and lineshapes for spectroscopy.
-
-
-```@autodocs
-Modules = [Models]
-Pages = ["functions.jl"]
-```
-
-
-## Special Functions
-
-These function are specific to cavity polariton research,
-where things like the cavity transmittance, material dielectric function,
-and cavity free spectral range (FSR) need to be calculated and modeled.
-
-
-```@autodocs
-Modules = [Models]
-Pages = ["special_functions.jl"]
+fig
 ```

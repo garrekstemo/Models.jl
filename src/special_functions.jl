@@ -6,7 +6,11 @@
 Frequency-dependent real part of the dielectric function in terms
 of the background index and Lorentzian oscillator,
 
-``\\varepsilon_1(\\nu) = n^2 + \\frac{A (\\nu_0^2 - \\nu^2)}{(\\nu^2 - \\nu_0^2)^2 + (\\Gamma\\nu)^2},``
+```math
+\\begin{aligned}
+\\varepsilon_1(\\nu) = n^2 + \\frac{A (\\nu_0^2 - \\nu^2)}{(\\nu^2 - \\nu_0^2)^2 + (\\Gamma\\nu)^2},
+\\end{aligned}
+```
 
 where ``n`` is the background real index, ``\\nu_0`` is the excitation
 frequency, ``\\Gamma`` is the line width of the oscillator, and ``A`` is the 
@@ -24,7 +28,11 @@ end
 
 Frequency-dependent imaginary part of the dielectric function.
 
-``\\varepsilon_2(\\nu) = \\frac{A \\Gamma \\nu}{(\\nu^2 - \\nu_0^2)^2 + (\\Gamma\\nu)^2}``
+```math
+\begin{aligned}
+\\varepsilon_2(\\nu) = \\frac{A \\Gamma \\nu}{(\\nu^2 - \\nu_0^2)^2 + (\\Gamma\\nu)^2}
+\\end{aligned}
+```
 """
 function dielectric_imag(ν, p)
     ν_0, A, Γ, y_0 = p
@@ -38,7 +46,10 @@ end
 
 Cavity mode energy as a function of incident angle.
 
-``E_\\text{cavity}(\\theta) = E_0 \\left( 1 - \\frac{\\sin^2(\\theta)}{n^2} \\right)^{-1/2},``
+```math
+\\begin{aligned}
+E_\\text{cavity}(\\theta) = E_0 \\left( 1 - \\frac{\\sin^2(\\theta)}{n^2} \\right)^{-1/2},
+\\end{aligned}```
 
 where ``E_0`` is the energy of the cavity mode at zero degrees incidence angle.
 
@@ -56,19 +67,24 @@ with principle energies `E_c` (cavity photon) and `E_v` (material excitation),
 and interaction energy `V`. The lower and upper branches are called with `branch=0`
 and `branch=1`, respectively.
 
-``H = 
+```math
+\\begin{aligned}
+H = 
 \\begin{pmatrix}
 E_1(\\theta) & \\Omega_R/2 \\\\\
 \\Omega_R/2 & E_2
-\\end{pmatrix}.``
+\\end{pmatrix}.
+\\end{aligned}```
 
 Diagonalizing ``H`` gives the interaction energies as a function
 of ``\\theta``. These exhibit avoided crossing behavior near 
 where the cavity mode energy equals the material excitation energy.
 
-``
+```math
+\\begin{aligned}
 E_{\\pm}(\\theta) = \\frac{1}{2}(E_1(\\theta) + E_2) \\pm \\frac{1}{2} \\sqrt{(E_1(\\theta) - E_2)^2 + \\Omega_R^2}
-``
+\\end{aligned}
+```
 
 [https://en.wikipedia.org/wiki/Avoided_crossing](https://en.wikipedia.org/wiki/Avoided_crossing)
 """
@@ -89,9 +105,12 @@ end
 
 Cavity transmittance as a function of frequency.
 
-``T(\\nu) = \\frac{T^2 e^{-\\alpha L}}{1 + R^2 e^{-2 \\alpha L} - 2 R e^{-\\alpha L} \\cos(4\\pi n L \\nu + 2\\phi)},``
+```math
+\\begin{aligned}
+T(\\nu) = \\frac{T^2 e^{-\\alpha L}}{1 + R^2 e^{-2 \\alpha L} - 2 R e^{-\\alpha L} \\cos(4\\pi n L \\nu + 2\\phi)},
+\\end{aligned}```
 
-where ``\\nu` is the frequency, ``\\alpha`` and ``n`` are the frequency-dependent absorption and refractive index,
+where ``\\nu`` is the frequency, ``\\alpha`` and ``n`` are the frequency-dependent absorption and refractive index,
 ``L`` is the cavity length, and ``\\phi`` is the phase accumulated upon reflection against a mirror.
 ``T`` and ``R`` are the cavity transmittance and reflectance, respectively, where it is assumed that
 ``T = 1 - R``.
@@ -125,7 +144,11 @@ end
 Solve for one of three variables in the equation
     for free spectral range in terms of the other two.
 
-``\\Delta \\nu = \\frac{1}{2 L n},``
+```math
+\\begin{aligned}
+\\Delta \\nu = \\frac{1}{2 L n},
+\\end{aligned}
+```
 
 where ``\\Delta\\nu = |\\nu_2 - \\nu_2|``, ``L`` is the intracavity length,
 and ``n`` is intracavity index of refraction.
