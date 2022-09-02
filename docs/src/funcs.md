@@ -5,5 +5,5 @@ Common functions and lineshapes for spectroscopy.
 
 ```@autodocs
 Modules = [Models]
-Pages = ["functions.jl"]
+Pages = ["model_functions.jl"]
 ```

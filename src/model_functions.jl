@@ -5,7 +5,7 @@ Exponential decay function with amplitude ``f_0``, and decay constant τ.
 
 ```math
 \\begin{aligned}
-f(x; f_0, \\tau) = f_0 e^{-x / \\tau}
+    f(x; f_0, \\tau) = f_0 e^{-x / \\tau}
 \\end{aligned}
 ```
 
@@ -24,7 +24,7 @@ two different time constants, ``\\tau_1`` and ``\\tau_2``.
 
 ```math
 \\begin{aligned}
-f(x; f_1, \\tau_1, f_2, \\tau_2) = f_1 e^{-x / \\tau_1} + f_2 e^{-x / \\tau_2}
+    f(x; f_1, \\tau_1, f_2, \\tau_2) = f_1 e^{-x / \\tau_1} + f_2 e^{-x / \\tau_2}
 \\end{aligned}
 ```
 
@@ -41,7 +41,7 @@ Gaussian function with amplitude ``A``, center ``μ``, and width ``σ``.
 
 ```math
 \\begin{aligned}
-f(x; A, \\mu, \\sigma) = \\frac{A}{\\sigma \\sqrt{2\\pi}} e^{-(x - \\mu)^2 / (2 \\sigma^2)}
+    f(x; A, \\mu, \\sigma) = \\frac{A}{\\sigma \\sqrt{2\\pi}} e^{-(x - \\mu)^2 / (2 \\sigma^2)}
 \\end{aligned}
 ```
 
@@ -61,7 +61,7 @@ Two-dimensional Gaussian function centered at ``(x_0, y_0)`` and x-width
 
 ```math
 \\begin{aligned}
-f(x, y; A, x_0, \\sigma_x, y_0, \\sigma_y) = A \\exp\\left(-\\left( \\frac{(x - x_0)^2}{2 \\sigma_x^2} + \\frac{(y - y_0)^2}{2 \\sigma_y^2} \\right)\\right)
+    f(x, y; A, x_0, \\sigma_x, y_0, \\sigma_y) = A \\exp\\left(-\\left( \\frac{(x - x_0)^2}{2 \\sigma_x^2} + \\frac{(y - y_0)^2}{2 \\sigma_y^2} \\right)\\right)
 \\end{aligned}
 ```
 """
@@ -86,7 +86,7 @@ full width at half maximum (FWHM) `2γ`.
 
 ```math
 \\begin{aligned}
-f(\\nu; A, \\nu_0, \\gamma) = \\frac{A}{\\pi} \\frac{\\gamma}{(\\nu - \\nu_0)^2 + \\gamma^2}
+    f(\\nu; A, \\nu_0, \\gamma) = \\frac{A}{\\pi} \\frac{\\gamma}{(\\nu - \\nu_0)^2 + \\gamma^2}
 \\end{aligned}
 ```
 

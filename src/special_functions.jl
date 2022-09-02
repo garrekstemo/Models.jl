@@ -29,7 +29,7 @@ end
 Frequency-dependent imaginary part of the dielectric function.
 
 ```math
-\begin{aligned}
+\\begin{aligned}
 \\varepsilon_2(\\nu) = \\frac{A \\Gamma \\nu}{(\\nu^2 - \\nu_0^2)^2 + (\\Gamma\\nu)^2}
 \\end{aligned}
 ```
@@ -48,8 +48,9 @@ Cavity mode energy as a function of incident angle.
 
 ```math
 \\begin{aligned}
-E_\\text{cavity}(\\theta) = E_0 \\left( 1 - \\frac{\\sin^2(\\theta)}{n^2} \\right)^{-1/2},
-\\end{aligned}```
+    E_\\text{cavity}(\\theta) = E_0 \\left( 1 - \\frac{\\sin^2(\\theta)}{n^2} \\right)^{-1/2},
+\\end{aligned}
+```
 
 where ``E_0`` is the energy of the cavity mode at zero degrees incidence angle.
 
@@ -71,10 +72,11 @@ and `branch=1`, respectively.
 \\begin{aligned}
 H = 
 \\begin{pmatrix}
-E_1(\\theta) & \\Omega_R/2 \\\\\
-\\Omega_R/2 & E_2
-\\end{pmatrix}.
-\\end{aligned}```
+    E_1(\\theta) & \\Omega_R/2 \\\\\
+    \\Omega_R/2 & E_2
+\\end{pmatrix}
+\\end{aligned}
+```
 
 Diagonalizing ``H`` gives the interaction energies as a function
 of ``\\theta``. These exhibit avoided crossing behavior near 
@@ -107,8 +109,9 @@ Cavity transmittance as a function of frequency.
 
 ```math
 \\begin{aligned}
-T(\\nu) = \\frac{T^2 e^{-\\alpha L}}{1 + R^2 e^{-2 \\alpha L} - 2 R e^{-\\alpha L} \\cos(4\\pi n L \\nu + 2\\phi)},
-\\end{aligned}```
+    T(\\nu) = \\frac{T^2 e^{-\\alpha L}}{1 + R^2 e^{-2 \\alpha L} - 2 R e^{-\\alpha L} \\cos(4\\pi n L \\nu + 2\\phi)},
+\\end{aligned}
+```
 
 where ``\\nu`` is the frequency, ``\\alpha`` and ``n`` are the frequency-dependent absorption and refractive index,
 ``L`` is the cavity length, and ``\\phi`` is the phase accumulated upon reflection against a mirror.
@@ -146,7 +149,7 @@ Solve for one of three variables in the equation
 
 ```math
 \\begin{aligned}
-\\Delta \\nu = \\frac{1}{2 L n},
+    \\Delta \\nu = \\frac{1}{2 L n},
 \\end{aligned}
 ```
 
