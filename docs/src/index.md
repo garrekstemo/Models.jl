@@ -25,19 +25,19 @@ using CairoMakie
 
 xdata = -30:0.4:1.0
 
-A, τ, y_0 = [0.1, 5.0, 0.3]
-ydata = exponential(xdata, [A, τ, y_0]) .+ 1.2 * randn(length(xdata))
+A, τ = [0.1, 5.0]
+ydata = exponential(xdata, [A, τ]) .+ 1.2 * randn(length(xdata))
 
-p0 = [0.1, 1.0, 0.0]
+p0 = [0.1, 1.0]
 result = optimize(b -> squared_errors(b, exponential, xdata, ydata), p0)
 params = Optim.minimizer(result)
 
-fig = Figure()
-ax = Axis(fig[1, 1])
+f = Figure()
+ax = Axis(f[1, 1])
 
 lines!(ax, xdata, ydata, label = "data")
 lines!(ax, xdata, exponential(xdata, params), label = "fit")
 axislegend(ax)
 
-fig
+f
 ```
