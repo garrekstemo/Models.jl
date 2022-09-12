@@ -9,7 +9,7 @@ Exponential decay function with amplitude ``f_0``, and decay constant τ.
 \\end{aligned}
 ```
 
-[https://en.wikipedia.org/wiki/Exponential_decay](https://en.wikipedia.org/wiki/Exponential_decay)
+[Exponential decay](https://en.wikipedia.org/wiki/Exponential_decay)
 """
 function exponential(x, p = [1.0, 1.0])
     f_0, τ = p
@@ -27,7 +27,6 @@ two different time constants, ``\\tau_1`` and ``\\tau_2``.
     f(x; f_1, \\tau_1, f_2, \\tau_2) = f_1 e^{-x / \\tau_1} + f_2 e^{-x / \\tau_2}
 \\end{aligned}
 ```
-
 """
 function double_exponential(x, p = [1.0, 1.0, 1.0, 1.0])
     f_1, τ_1, f_2, τ_2 = p
@@ -45,7 +44,7 @@ Gaussian function with amplitude ``A``, center ``μ``, and width ``σ``.
 \\end{aligned}
 ```
 
-[https://en.wikipedia.org/wiki/Gaussian_function](https://en.wikipedia.org/wiki/Gaussian_function)
+[Gaussian function](https://en.wikipedia.org/wiki/Gaussian_function)
 """
 function gaussian(x, p = [1.0, 0.0, 0.1])
 
@@ -64,6 +63,8 @@ Two-dimensional Gaussian function centered at ``(x_0, y_0)`` and x-width
     f(x, y; A, x_0, \\sigma_x, y_0, \\sigma_y) = A \\exp\\left(-\\left( \\frac{(x - x_0)^2}{2 \\sigma_x^2} + \\frac{(y - y_0)^2}{2 \\sigma_y^2} \\right)\\right)
 \\end{aligned}
 ```
+
+[Two-dimensional Gaussian function](https://en.wikipedia.org/wiki/Gaussian_function#Two-dimensional_Gaussian_function)
 """
 function gaussian2d(x, y, p = [1.0, 0.0, 1.0, 0.0, 1.0])
 
@@ -113,6 +114,8 @@ end
     sine(x, p = [A, ω, ϕ])
 
 Sinusoidal function.
+
+[https://en.wikipedia.org/wiki/Sine_wave](https://en.wikipedia.org/wiki/Sine_wave)
 """
 function sine(t, p = [1.0, 10.0, 0.0])
     A, ω, ϕ = p
@@ -123,6 +126,8 @@ end
     damped_sine(x, p = [A, ω, ϕ, τ])
 
 Damped sine function.
+
+[https://en.wikipedia.org/wiki/Damping](https://en.wikipedia.org/wiki/Damping)
 """
 function damped_sine(t, p = [1.0, 10.0, 0.0, 1.0])
     A, ω, ϕ, τ = p

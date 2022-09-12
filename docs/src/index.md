@@ -1,9 +1,9 @@
 # Models.jl Documentation
 
-This simple package contains functions and lineshapes
-commonly used in vibrational polariton spectroscopic experiments.
+This simple package contains functions and [spectral line shapes](https://en.wikipedia.org/wiki/Spectral_line_shape)
+commonly used in mid-infrared spectroscopy.
 The main purpose is code reusability for my own projects, but
-on the off chance that it is useful to others, it is available.
+on the off chance that it is useful to others, it is available to use freely.
 These functions are best used together with [Optim.jl](https://github.com/JuliaNLSolvers/Optim.jl) or the global optimization package [Optimization.jl](https://optimization.sciml.ai/stable/) for
 fitting. It would be nice if models and fitting procedures were bundled together in the future,
 like the [lmfit](https://lmfit.github.io/lmfit-py/index.html) package available for Python (leveraging SciPy).
