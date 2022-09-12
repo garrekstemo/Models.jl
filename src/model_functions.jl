@@ -114,9 +114,19 @@ end
 
 Sinusoidal function.
 """
-function sine(x, p = [1.0, 10.0, 0.0])
+function sine(t, p = [1.0, 10.0, 0.0])
     A, ω, ϕ = p
-    return @. A * sin(x * ω + ϕ)
+    return @. A * sin(t * ω + ϕ)
+end
+
+"""
+    damped_sine(x, p = [A, ω, ϕ, τ])
+
+Damped sine function.
+"""
+function damped_sine(t, p = [1.0, 10.0, 0.0, 1.0])
+    A, ω, ϕ, τ = p
+    return @. A * exp(-t / τ) * sin(t * ω + ϕ)
 end
 
 """
