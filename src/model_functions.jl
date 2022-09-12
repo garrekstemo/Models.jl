@@ -103,6 +103,12 @@ end
     double_lorentzian(ν, p = [A_1, σ_1, ν_1, A_2, σ_2, ν_2])
 
 Sum of two Lorentzian functions.
+
+```math
+\\begin{aligned}
+    f(\\nu; A_1, \\nu_1, \\gamma_1, A_2, \\nu_2, \\gamma_2) = \\frac{A_1}{\\pi} \\frac{\\gamma_1}{(\\nu - \\nu_1)^2 + \\gamma^2} + \\frac{A_2}{\\pi} \\frac{\\gamma_2}{(\\nu - \\nu_2)^2 + \\gamma_2^2}
+\\end{aligned}
+```
 """
 function double_lorentzian(ν, p = [1.0, -0.5, 0.1, 1.0, 0.5, 0.1])
 
@@ -115,6 +121,12 @@ end
 
 Sinusoidal function.
 
+```math
+\\begin{aligned}
+    \\sin(\\omega t + \\phi)
+\\end{aligned}
+```
+
 [https://en.wikipedia.org/wiki/Sine_wave](https://en.wikipedia.org/wiki/Sine_wave)
 """
 function sine(t, p = [1.0, 10.0, 0.0])
@@ -126,6 +138,12 @@ end
     damped_sine(x, p = [A, ω, ϕ, τ])
 
 Damped sine function.
+
+```math
+\\begin{aligned}
+    f(t) = A e^{-\\frac{t}{\\tau}} \\sin(\\omega t + \\phi)
+\\end{aligned}
+```
 
 [https://en.wikipedia.org/wiki/Damping](https://en.wikipedia.org/wiki/Damping)
 """
@@ -140,6 +158,12 @@ end
 Takes a function, `f`, and its parameters, `p`
 and sums the squared errors given x-data and y-data
 `X` and `Y`, respectively.
+
+```math
+\\begin{aligned}
+    \\text{err} = \\sum_{i=1}^{n} \\left( Y_i(X) - \\hat{Y}_i \\right)^2
+\\end{aligned}
+```
 """
 function squared_errors(p, f::F, X, Y) where F <: Function
     error = 0.0
