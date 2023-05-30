@@ -1,13 +1,13 @@
 module Models
 
-export exponential, 
-       double_exponential, 
+export exponential,
        gaussian, 
        gaussian2d,
        lorentzian, 
-       double_lorentzian, 
        sine, 
        damped_sine,
+       pseudo_voigt,
+       findpeaks,
        squared_errors,
        dielectric_real, 
        dielectric_imag, 

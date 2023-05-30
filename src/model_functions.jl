@@ -17,23 +17,6 @@ function exponential(x, p = [1.0, 1.0])
 end
 
 """
-    double_exponential(x, p = [f_1, τ_1, f_2, τ_2])
-
-Exponential decay function with two stages represented by
-two different time constants, ``\\tau_1`` and ``\\tau_2``.
-
-```math
-\\begin{aligned}
-    f(x; f_1, \\tau_1, f_2, \\tau_2) = f_1 e^{-x / \\tau_1} + f_2 e^{-x / \\tau_2}
-\\end{aligned}
-```
-"""
-function double_exponential(x, p = [1.0, 1.0, 1.0, 1.0])
-    f_1, τ_1, f_2, τ_2 = p
-    return f_1 * exp(-x / τ_1) + f_2 * exp(-x / τ_2)
-end
-
-"""
     gaussian(x, p = [A, μ, σ])
 
 Gaussian function with amplitude ``A``, center ``μ``, and width ``σ``.
@@ -95,22 +78,6 @@ function lorentzian(ν, p = [1.0, 0.0, 0.1])
     A, ν_0, γ  = p
     return A / π * γ / ( (ν - ν_0)^2 + γ^2 )
 end
-
-"""
-    double_lorentzian(ν, p = [A_1, σ_1, ν_1, A_2, σ_2, ν_2])
-
-Sum of two Lorentzian functions.
-
-```math
-\\begin{aligned}
-    f(\\nu; A_1, \\nu_1, \\gamma_1, A_2, \\nu_2, \\gamma_2) = \\frac{A_1}{\\pi} \\frac{\\gamma_1}{(\\nu - \\nu_1)^2 + \\gamma^2} + \\frac{A_2}{\\pi} \\frac{\\gamma_2}{(\\nu - \\nu_2)^2 + \\gamma_2^2}
-\\end{aligned}
-```
-"""
-function double_lorentzian(ν, p = [1.0, -0.5, 0.1, 1.0, 0.5, 0.1])
-    A_1, ν_1, σ_1, A_2, ν_2, σ_2 = p
-    return A_1 / π * σ_1 / ( (ν - ν_1)^2 + σ_1^2 ) + A_2 / π * σ_2 / ( (ν - ν_2)^2 + σ_2^2 )
-end
     
 """
     sine(x, p = [A, ω, ϕ])
@@ -146,18 +113,6 @@ Damped sine function.
 function damped_sine(t, p = [1.0, 10.0, 0.0, 1.0])
     A, ω, ϕ, τ = p
     return A * exp(-t / τ) * sin(t * ω + ϕ)
-end
-
-"""
-    dampedsine_decay(t, p = [1.0])
-
-params: A, τ1, ω, ϕ, B, τ2, y0
-
-f(t) = A * exp(-t / τ1) * sin(t * ω + ϕ) + B * exp(-t / τ2) + y0
-"""
-function dampedsine_decay(t, p)
-    f_1, τ_1, ω_0, ϕ_0, f_2, τ_2, y_0 = p
-    return f_1 * exp(-t / τ_1) * sin(t * ω_0 + ϕ_0) + f_2 * exp(-t / τ_2) + y_0
 end
 
 """
