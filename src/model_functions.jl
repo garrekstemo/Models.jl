@@ -13,7 +13,7 @@ Exponential decay function with amplitude ``f_0``, and decay constant τ.
 """
 function exponential(x, p = [1.0, 1.0])
     f_0, τ = p
-    return @. f_0 * exp(-x / τ)
+    return f_0 * exp(-x / τ)
 end
 
 """
@@ -30,7 +30,7 @@ two different time constants, ``\\tau_1`` and ``\\tau_2``.
 """
 function double_exponential(x, p = [1.0, 1.0, 1.0, 1.0])
     f_1, τ_1, f_2, τ_2 = p
-    return @. f_1 * exp(-x / τ_1) + f_2 * exp(-x / τ_2)
+    return f_1 * exp(-x / τ_1) + f_2 * exp(-x / τ_2)
 end
 
 """
@@ -47,9 +47,8 @@ Gaussian function with amplitude ``A``, center ``μ``, and width ``σ``.
 [Gaussian function](https://en.wikipedia.org/wiki/Gaussian_function)
 """
 function gaussian(x, p = [1.0, 0.0, 0.1])
-
     A, μ, σ = p
-    return @. A * exp( -(x - μ)^2 / (2 * σ^2) )
+    return A * exp( -(x - μ)^2 / (2 * σ^2) )
 end
 
 """
@@ -67,7 +66,6 @@ Two-dimensional Gaussian function centered at ``(x_0, y_0)`` and x-width
 [Two-dimensional Gaussian function](https://en.wikipedia.org/wiki/Gaussian_function#Two-dimensional_Gaussian_function)
 """
 function gaussian2d(x, y, p = [1.0, 0.0, 1.0, 0.0, 1.0])
-
     G = Array{Float64}(undef, length(x), length(y))
     A, x_0, σ_x, y_0, σ_y = p
 
@@ -94,9 +92,8 @@ full width at half maximum (FWHM) `2γ`.
 [https://en.wikipedia.org/wiki/Cauchy_distribution](https://en.wikipedia.org/wiki/Cauchy_distribution)
 """
 function lorentzian(ν, p = [1.0, 0.0, 0.1])
-
     A, ν_0, γ  = p
-    return @. A / π * γ / ( (ν - ν_0)^2 + γ^2 )
+    return A / π * γ / ( (ν - ν_0)^2 + γ^2 )
 end
 
 """
@@ -111,9 +108,8 @@ Sum of two Lorentzian functions.
 ```
 """
 function double_lorentzian(ν, p = [1.0, -0.5, 0.1, 1.0, 0.5, 0.1])
-
     A_1, ν_1, σ_1, A_2, ν_2, σ_2 = p
-    return @. A_1 / π * σ_1 / ( (ν - ν_1)^2 + σ_1^2 ) + A_2 / π * σ_2 / ( (ν - ν_2)^2 + σ_2^2 )
+    return A_1 / π * σ_1 / ( (ν - ν_1)^2 + σ_1^2 ) + A_2 / π * σ_2 / ( (ν - ν_2)^2 + σ_2^2 )
 end
     
 """
@@ -131,7 +127,7 @@ Sinusoidal function.
 """
 function sine(t, p = [1.0, 10.0, 0.0])
     A, ω, ϕ = p
-    return @. A * sin(t * ω + ϕ)
+    return A * sin(t * ω + ϕ)
 end
 
 """
@@ -149,7 +145,7 @@ Damped sine function.
 """
 function damped_sine(t, p = [1.0, 10.0, 0.0, 1.0])
     A, ω, ϕ, τ = p
-    return @. A * exp(-t / τ) * sin(t * ω + ϕ)
+    return A * exp(-t / τ) * sin(t * ω + ϕ)
 end
 
 """
@@ -161,7 +157,7 @@ f(t) = A * exp(-t / τ1) * sin(t * ω + ϕ) + B * exp(-t / τ2) + y0
 """
 function dampedsine_decay(t, p)
     f_1, τ_1, ω_0, ϕ_0, f_2, τ_2, y_0 = p
-    return @. f_1 * exp(-t / τ_1) * sin(t * ω_0 + ϕ_0) + f_2 * exp(-t / τ_2) + y_0
+    return f_1 * exp(-t / τ_1) * sin(t * ω_0 + ϕ_0) + f_2 * exp(-t / τ_2) + y_0
 end
 
 """
@@ -175,7 +171,7 @@ p = [f_0, ω_0, σ, α]
 function pseudo_voigt(ω, p)
     f_0, ω_0, σ, α = p
     σ_g = σ / sqrt(2 * log(2))
-    return @. (1 - α) * f_0 * exp(-(ω - ω_0)^2 / (2 * σ_g^2)) / (σ_g * sqrt(2 * π)) + α * f_0 * σ / ((ω - ω_0)^2 + σ^2) / π
+    return (1 - α) * f_0 * exp(-(ω - ω_0)^2 / (2 * σ_g^2)) / (σ_g * sqrt(2 * π)) + α * f_0 * σ / ((ω - ω_0)^2 + σ^2) / π
             
 end
 
@@ -212,7 +208,6 @@ and sums the squared errors given x-data and y-data
 """
 function squared_errors(p, f::F, X, Y) where F <: Function
     error = 0.0
-
     for i in eachindex(X)
         y_i = f(X[i], p)
         error += (Y[i] - y_i)^2
