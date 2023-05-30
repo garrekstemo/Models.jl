@@ -13,7 +13,7 @@ Exponential decay function with amplitude ``f_0``, and decay constant τ.
 """
 function exponential(x, p = [1.0, 1.0])
     f_0, τ = p
-    return @. f_0 * exp(- x / τ)
+    return @. f_0 * exp(-x / τ)
 end
 
 """
@@ -30,7 +30,7 @@ two different time constants, ``\\tau_1`` and ``\\tau_2``.
 """
 function double_exponential(x, p = [1.0, 1.0, 1.0, 1.0])
     f_1, τ_1, f_2, τ_2 = p
-    return @. f_1 * exp(- x / τ_1) + f_2 * exp(- x / τ_2)
+    return @. f_1 * exp(-x / τ_1) + f_2 * exp(-x / τ_2)
 end
 
 """
