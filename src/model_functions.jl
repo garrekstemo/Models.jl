@@ -153,6 +153,51 @@ function damped_sine(t, p = [1.0, 10.0, 0.0, 1.0])
 end
 
 """
+    dampedsine_decay(t, p = [1.0])
+
+params: A, τ1, ω, ϕ, B, τ2, y0
+
+f(t) = A * exp(-t / τ1) * sin(t * ω + ϕ) + B * exp(-t / τ2) + y0
+"""
+function dampedsine_decay(t, p)
+    f_1, τ_1, ω_0, ϕ_0, f_2, τ_2, y_0 = p
+    return @. f_1 * exp(-t / τ_1) * sin(t * ω_0 + ϕ_0) + f_2 * exp(-t / τ_2) + y_0
+end
+
+"""
+    pseudo_voigt(ω, p)
+
+Weighted sum of a Lorentzian and a Gaussian function
+with the same center `ω_0` and amplitude `f_0`.
+
+p = [f_0, ω_0, σ, α]
+"""
+function pseudo_voigt(ω, p)
+    f_0, ω_0, σ, α = p
+    σ_g = σ / sqrt(2 * log(2))
+    return @. (1 - α) * f_0 * exp(-(ω - ω_0)^2 / (2 * σ_g^2)) / (σ_g * sqrt(2 * π)) + α * f_0 * σ / ((ω - ω_0)^2 + σ^2) / π
+            
+end
+
+"""
+    localmax(y::AbstractVector; height = 0.0)
+
+Find the local maxima of a vector and return their indices.
+Optionally, a subset of peaks can be selected by specifying peak properties.
+"""
+function findpeaks(y::AbstractVector; height = 0.0)
+    maxima = Real[]
+    for i in 2:length(y) - 1
+        if y[i] > y[i - 1] && y[i] > y[i + 1]
+            if y[i] > height
+                push!(maxima, i)
+            end
+        end
+    end
+    return maxima
+end
+
+"""
     squared_errors(p, f, X, Y)
 
 Takes a function, `f`, and its parameters, `p`
@@ -174,3 +219,4 @@ function squared_errors(p, f::F, X, Y) where F <: Function
     end
     return error
 end
+
