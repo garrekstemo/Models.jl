@@ -79,7 +79,7 @@ function transmission(ω, f_pu, ω_0, ω_c, Δ, γ_m, κ, g_1, g_3_ratio, N)
 end
 
 """
-    pp_spectrum(ω, f_pu, ω_0, ω_c, Δ, γ_1, κ, g_1, g_3_ratio, N)
+    pp_spectrum(ω, f_pu, ω_0, ω_c, Δ, γ_m, κ, g_1, g_3_ratio, N)
 
 Pump-probe spectrum
     ΔT = T_fpu - T_0
@@ -102,7 +102,9 @@ end
 
 
 """
-    pp_spectrum(ω, f_pu, ω_0, ω_c, Δ, γ_1, κ, g_1, g_3_ratio, N)
+    pp_spectrum(ω, f_pu, ω_0, ω_c1, ω_c2, Δ, γ_m, κ, g_1, g_3_ratio, N)
+
+Pump and probe cavity modes are energetically offset from one another.
 
 Pump-probe spectrum
     ΔT = T_fpu - T_0
