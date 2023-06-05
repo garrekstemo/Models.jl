@@ -121,7 +121,11 @@ where ``\\nu`` is the frequency, ``\\alpha`` and ``n`` are the frequency-depende
 function cavity_transmittance(ν, p)
     n, α, L, R, ϕ = p
     T = 1 - R
-    return T^2 * exp(-α * L) / (1 + R^2 * exp(-2 * α * L) - 2 * R * exp(-α * L) * cos(4*π * n * L * ν + 2*ϕ))
+    y = zeros(length(ν))
+    for i in eachindex(ν)
+        y[i] = T^2 * exp(-α[i] * L) / (1 + R^2 * exp(-2 * α[i] * L) - 2 * R * exp(-α[i] * L) * cos(4π * n[i] * L * ν[i] + 2 * ϕ))
+    end
+    y
 end
 
 """
