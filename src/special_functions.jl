@@ -18,7 +18,7 @@ oscillator strength.
 """
 function dielectric_real(ν, p)
     ν_0, A, Γ, n_eff = p
-    return n_eff^2 + A * (ν_0^2 - ν^2) / ((ν^2 - ν_0^2)^2 + Γ^2 * ν^2)
+    return @. n_eff^2 + A * (ν_0^2 - ν^2) / ((ν^2 - ν_0^2)^2 + Γ^2 * ν^2)
 end
 
 """
@@ -36,7 +36,7 @@ Frequency-dependent imaginary part of the dielectric function.
 """
 function dielectric_imag(ν, p)
     ν_0, A, Γ, y_0 = p
-    return A * Γ * ν / ((ν^2 - ν_0^2)^2 + Γ^2 * ν^2) + y_0
+    return @. A * Γ * ν / ((ν^2 - ν_0^2)^2 + Γ^2 * ν^2) + y_0
 end
 
 """
@@ -57,7 +57,7 @@ where ``E_0`` is the energy of the cavity mode at zero degrees incidence angle.
 """
 function cavity_mode_energy(θ::Real, p)
     E_0, n_eff = p
-    return E_0 / sqrt(1 - (sin(θ) / n_eff)^2)
+    return @. E_0 / sqrt(1 - (sin(θ) / n_eff)^2)
 end
 
 """
@@ -93,9 +93,9 @@ where the cavity mode energy equals the material excitation energy.
 function coupled_energies(E_c::Vector{T1}, E_v::T2, V::T3, branch=0) where {T1, T2, T3 <: Real}
 
     if branch == 0
-        return 0.5 * ( (E_v + E_c) - sqrt(V^2 + (E_v - E_c)^2) )
+        return @. 0.5 * ( (E_v + E_c) - sqrt(V^2 + (E_v - E_c)^2) )
     elseif branch == 1
-        return 0.5 * ( (E_v + E_c) + sqrt(V^2 + (E_v - E_c)^2) )
+        return @. 0.5 * ( (E_v + E_c) + sqrt(V^2 + (E_v - E_c)^2) )
     end
 end
 
@@ -121,11 +121,7 @@ where ``\\nu`` is the frequency, ``\\alpha`` and ``n`` are the frequency-depende
 function cavity_transmittance(ν, p)
     n, α, L, R, ϕ = p
     T = 1 - R
-    y = zeros(length(ν))
-    for i in eachindex(ν)
-        y[i] = T^2 * exp(-α[i] * L) / (1 + R^2 * exp(-2 * α[i] * L) - 2 * R * exp(-α[i] * L) * cos(4π * n[i] * L * ν[i] + 2 * ϕ))
-    end
-    y
+    @. T^2 * exp(-α * L) / (1 + R^2 * exp(-2 * α * L) - 2 * R * exp(-α * L) * cos(4π * n * L * ν + 2 * ϕ))
 end
 
 """
