@@ -35,8 +35,8 @@ Frequency-dependent imaginary part of the dielectric function.
 ```
 """
 function dielectric_imag(ν, p)
-    ν_0, A, Γ, y_0 = p
-    return @. A * Γ * ν / ((ν^2 - ν_0^2)^2 + Γ^2 * ν^2) + y_0
+    ν_0, A, Γ = p
+    return @. A * Γ * ν / ((ν^2 - ν_0^2)^2 + Γ^2 * ν^2)
 end
 
 """
