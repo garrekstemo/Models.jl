@@ -1,7 +1,7 @@
 """
     dielectric_real(ν, p)
 
-`p = [ν_0, A, Γ, n_eff]`
+`p = [ν_0, A, Γ]`
 
 Frequency-dependent real part of the dielectric function in terms
 of the background index and Lorentzian oscillator,
@@ -14,11 +14,12 @@ of the background index and Lorentzian oscillator,
 
 where ``n`` is the background real index, ``\\nu_0`` is the excitation
 frequency, ``\\Gamma`` is the line width of the oscillator, and ``A`` is the 
-oscillator strength.
+oscillator strength. In this model, ``n`` is omitted to allow for
+a sum of oscillators. The background index must be added later.
 """
 function dielectric_real(ν, p)
-    ν_0, A, Γ, n_eff = p
-    return @. n_eff^2 + A * (ν_0^2 - ν^2) / ((ν^2 - ν_0^2)^2 + Γ^2 * ν^2)
+    ν_0, A, Γ = p
+    return @. A * (ν_0^2 - ν^2) / ((ν^2 - ν_0^2)^2 + Γ^2 * ν^2)
 end
 
 """
