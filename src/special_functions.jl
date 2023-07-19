@@ -25,7 +25,7 @@ end
 """
     dielectric_imag(ν, p)
 
-`p = [ν_0, A, Γ, y_0]`
+`p = [ν_0, A, Γ]`
 
 Frequency-dependent imaginary part of the dielectric function.
 
