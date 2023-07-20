@@ -1,7 +1,7 @@
 """
     dielectric_real(ν, p)
 
-`p = [ν_0, A, Γ]`
+`p = [A, ν₀, Γ]`
 
 Frequency-dependent real part of the dielectric function in terms
 of the background index and Lorentzian oscillator,
@@ -18,14 +18,14 @@ oscillator strength. In this model, ``n`` is omitted to allow for
 a sum of oscillators. The background index must be added later.
 """
 function dielectric_real(ν, p)
-    ν_0, A, Γ = p
-    return @. A * (ν_0^2 - ν^2) / ((ν^2 - ν_0^2)^2 + Γ^2 * ν^2)
+    A, ν₀, Γ = p
+    return @. A * (ν₀^2 - ν^2) / ((ν^2 - ν₀^2)^2 + Γ^2 * ν^2)
 end
 
 """
     dielectric_imag(ν, p)
 
-`p = [ν_0, A, Γ]`
+`p = [A, ν₀, Γ]`
 
 Frequency-dependent imaginary part of the dielectric function.
 
@@ -36,29 +36,29 @@ Frequency-dependent imaginary part of the dielectric function.
 ```
 """
 function dielectric_imag(ν, p)
-    ν_0, A, Γ = p
-    return @. A * Γ * ν / ((ν^2 - ν_0^2)^2 + Γ^2 * ν^2)
+    ν₀, A, Γ = p
+    return @. A * Γ * ν / ((ν^2 - ν₀^2)^2 + Γ^2 * ν^2)
 end
 
 """
     cavity_mode_energy(θ::Real, p)
 
-`p = [E_0, n_eff]`
+`p = [E₀, n_eff]`
 
 Cavity mode energy as a function of incident angle.
 
 ```math
 \\begin{aligned}
-    E_\\text{cavity}(\\theta) = E_0 \\left( 1 - \\frac{\\sin^2(\\theta)}{n^2} \\right)^{-1/2},
+    E_\\text{cavity}(\\theta) = E₀ \\left( 1 - \\frac{\\sin^2(\\theta)}{n^2} \\right)^{-1/2},
 \\end{aligned}
 ```
 
-where ``E_0`` is the energy of the cavity mode at zero degrees incidence angle.
+where ``E₀`` is the energy of the cavity mode at zero degrees incidence angle.
 
 """
 function cavity_mode_energy(θ::Real, p)
-    E_0, n_eff = p
-    return @. E_0 / sqrt(1 - (sin(θ) / n_eff)^2)
+    E₀, n_eff = p
+    return @. E₀ / sqrt(1 - (sin(θ) / n_eff)^2)
 end
 
 """
@@ -104,7 +104,7 @@ end
 """
     cavity_transmittance(ν, p)
     
-    p = [n, α, L, T, R, ϕ]
+    p = [n, α, L, R, ϕ]
 
 Cavity transmittance as a function of frequency.
 
