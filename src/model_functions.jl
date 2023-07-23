@@ -13,7 +13,7 @@ Exponential decay function with amplitude ``f_0``, and decay constant τ.
 """
 function exponential(x, p = [1.0, 1.0])
     f_0, τ = p
-    return f_0 * exp(-x / τ)
+    return @. f_0 * exp(-x / τ)
 end
 
 """
@@ -31,7 +31,7 @@ Gaussian function with amplitude ``A``, center ``μ``, and width ``σ``.
 """
 function gaussian(x, p = [1.0, 0.0, 0.1])
     A, μ, σ = p
-    return A * exp( -(x - μ)^2 / (2 * σ^2) )
+    return @. A * exp( -(x - μ)^2 / (2 * σ^2) )
 end
 
 """
@@ -76,7 +76,7 @@ full width at half maximum (FWHM) `2γ`.
 """
 function lorentzian(ν, p = [1.0, 0.0, 0.1])
     A, ν_0, γ  = p
-    return A / π * γ / ( (ν - ν_0)^2 + γ^2 )
+    return @. A / π * γ / ( (ν - ν_0)^2 + γ^2 )
 end
     
 """
@@ -94,7 +94,7 @@ Sinusoidal function.
 """
 function sine(t, p = [1.0, 10.0, 0.0])
     A, ω, ϕ = p
-    return A * sin(t * ω + ϕ)
+    return @. A * sin(t * ω + ϕ)
 end
 
 """
@@ -112,7 +112,7 @@ Damped sine function.
 """
 function damped_sine(t, p = [1.0, 10.0, 0.0, 1.0])
     A, ω, ϕ, τ = p
-    return A * exp(-t / τ) * sin(t * ω + ϕ)
+    return @. A * exp(-t / τ) * sin(t * ω + ϕ)
 end
 
 """
@@ -126,8 +126,7 @@ p = [f_0, ω_0, σ, α]
 function pseudo_voigt(ω, p)
     f_0, ω_0, σ, α = p
     σ_g = σ / sqrt(2 * log(2))
-    return (1 - α) * f_0 * exp(-(ω - ω_0)^2 / (2 * σ_g^2)) / (σ_g * sqrt(2 * π)) + α * f_0 * σ / ((ω - ω_0)^2 + σ^2) / π
-            
+    return @. (1 - α) * f_0 * exp(-(ω - ω_0)^2 / (2 * σ_g^2)) / (σ_g * sqrt(2 * π)) + α * f_0 * σ / ((ω - ω_0)^2 + σ^2) / π
 end
 
 """
