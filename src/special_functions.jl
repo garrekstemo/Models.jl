@@ -56,9 +56,9 @@ Cavity mode energy as a function of incident angle.
 where ``E₀`` is the energy of the cavity mode at zero degrees incidence angle.
 
 """
-function cavity_mode_energy(θ::Real, p)
+function cavity_mode_energy(θs, p)
     E₀, n_eff = p
-    return @. E₀ / sqrt(1 - (sin(θ) / n_eff)^2)
+    return @. E₀ / sqrt(1 - (sin(θs) / n_eff)^2)
 end
 
 """
