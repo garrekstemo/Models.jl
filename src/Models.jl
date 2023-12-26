@@ -16,10 +16,8 @@ export exponential,
        cavity_transmittance, 
        fsr,
        transmission,
-       pp_spectrum
 
 include("model_functions.jl")
 include("special_functions.jl")
-include("input-output.jl")
 
 end # module
