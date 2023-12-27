@@ -14,8 +14,7 @@ export exponential,
        cavity_mode_energy, 
        coupled_energies,
        cavity_transmittance, 
-       fsr,
-       transmission,
+       fsr
 
 include("model_functions.jl")
 include("special_functions.jl")
